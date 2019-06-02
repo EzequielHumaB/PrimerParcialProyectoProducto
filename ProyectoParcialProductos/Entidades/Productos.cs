@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.Entity;
 
-namespace ProyectoParcialProductos.DAL
+namespace ProyectoParcialProductos.Entidades
 {
-   public class Contexto
+    public class Productos
     {
     }
 }
