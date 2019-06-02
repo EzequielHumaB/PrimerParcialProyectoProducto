@@ -64,6 +64,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Consultas\ConsultaInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaInventario.Designer.cs">
+      <DependentUpon>ConsultaInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\ProductoRegistro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UI\Consultas\ConsultaInventario.resx">
+      <DependentUpon>ConsultaInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\ProductoRegistro.resx">
       <DependentUpon>ProductoRegistro.cs</DependentUpon>
     </EmbeddedResource>
@@ -99,11 +108,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="UI\Consultas\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="BLL\Scripts\ProductosParcial.sql" />
+    <Content Include="DAL\Scripts\ProductosParcial.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

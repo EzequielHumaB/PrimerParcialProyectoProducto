@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoParcialProductos.UI.Registros;
+using ProyectoParcialProductos.UI.Consultas;
 
 namespace ProyectoParcialProductos
 {
@@ -23,6 +24,13 @@ namespace ProyectoParcialProductos
             ProductoRegistro productoRegistro = new ProductoRegistro();
             productoRegistro.StartPosition = FormStartPosition.CenterScreen;
             productoRegistro.Show();
+        }
+
+        private void ConsultasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaInventario consultaInventario = new ConsultaInventario();
+            consultaInventario.StartPosition = FormStartPosition.CenterScreen;
+            consultaInventario.Show();
         }
     }
 }

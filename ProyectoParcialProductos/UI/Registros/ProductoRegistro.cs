@@ -33,6 +33,8 @@ namespace ProyectoParcialProductos.UI.Registros
             Limpiar();
         }
 
+       
+
         private Productos LlenarClase()
         {
             Productos productos = new Productos();
