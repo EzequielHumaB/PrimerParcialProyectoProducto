@@ -84,5 +84,40 @@ namespace ProyectoParcialProductos.UI.Registros
             return (productos != null);
         }
 
+        private void GuardarButton_Click(object sender, EventArgs e)
+        {
+            bool paso = false;
+            Productos productos;
+
+            if (!Validar())
+                return;
+
+            productos = LlenarClase();
+            Limpiar();
+            if (IDnumericUpDown.Value == 0)
+            {
+                paso = ProductoClase.Guardar(productos);
+            }
+            else
+            {
+                if (!ExisteEnLaBaseDeDatos())
+                {
+                    MessageBox.Show("No se puede modificar a alguien que no existe");
+                    return;
+                }
+                paso = ProductoClase.Modificar(productos);
+            }
+             
+            if (paso)
+            {
+                MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+      
     }
 }
