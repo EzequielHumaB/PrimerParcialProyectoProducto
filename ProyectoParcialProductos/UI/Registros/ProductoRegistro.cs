@@ -118,6 +118,21 @@ namespace ProyectoParcialProductos.UI.Registros
             }
         }
 
-      
+        private void Eliminarbutton_Click(object sender, EventArgs e)
+        {
+            int id;
+            int.TryParse(IDnumericUpDown.Text, out id);
+            Limpiar();
+            if(ProductoClase.Eliminar(id))
+            {
+                MessageBox.Show("Eliminado correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se puede eliminar a alguien que no existe");
+            }
+        }
+
+        
     }
 }
