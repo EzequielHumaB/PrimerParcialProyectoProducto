@@ -33,6 +33,18 @@ namespace ProyectoParcialProductos.UI.Registros
             Limpiar();
         }
 
+        private Productos LlenarClase()
+        {
+            Productos productos = new Productos();
+            productos.ProductoID = (int)IDnumericUpDown.Value;
+            productos.Descripcion = DescripciontextBox.Text;
+            productos.costo = (double)CostonumericUpDown.Value;
+            productos.existencia = (int)ExistencianumericUpDow.Value;
+            productos.ValorInventario = (double)TotalnumericUpDown.Value;
+            return productos;
+        }
+
+        
      
     }
 }
