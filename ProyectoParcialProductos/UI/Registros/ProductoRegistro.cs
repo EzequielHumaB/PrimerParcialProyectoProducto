@@ -133,6 +133,23 @@ namespace ProyectoParcialProductos.UI.Registros
             }
         }
 
-        
+        private void Buscarbutton_Click(object sender, EventArgs e)
+        {
+            int id;
+            Productos productos = new Productos();
+            int.TryParse(IDnumericUpDown.Text, out id);
+            Limpiar();
+            
+            if (productos!=null)
+            {
+                MessageBox.Show("Usuario encontrado");
+                LlenarCampo(productos);
+            }
+            else
+            {
+                MessageBox.Show("Usuario no encontrado");
+            }
+
+        }
     }
 }
