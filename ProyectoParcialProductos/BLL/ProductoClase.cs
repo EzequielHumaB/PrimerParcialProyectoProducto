@@ -69,7 +69,24 @@ namespace ProyectoParcialProductos.BLL
             return paso;
         }
 
-        
+       public static Productos Buscar(int id)
+        {
+            Contexto contexto = new Contexto();
+            Productos productos = new Productos();
+            try
+            {
+                productos = contexto.productos.Find(id);
+
+            } catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return productos;
+        }
 
     }
 }
