@@ -11,6 +11,7 @@ namespace ProyectoParcialProductos.DAL
    public class Contexto : DbContext
     {
         public DbSet<Productos> productos { get; set; }
+        public DbSet<TotalInventario> totalInventarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
