@@ -54,7 +54,35 @@ namespace ProyectoParcialProductos.UI.Registros
             productos.ValorInventario = (double)TotalnumericUpDown.Value;
         }
 
-       
-     
+        public bool Validar()
+        {
+            bool paso = true;
+            if (string.IsNullOrWhiteSpace(DescripciontextBox.Text))
+            {
+                MessageBox.Show("La descripcion no puede estar vacia");
+                DescripciontextBox.Focus();
+                paso = false;
+            }
+            if (ExistencianumericUpDow.Value == 0)
+            {
+                MessageBox.Show("La existencia no puede estar vacia");
+                ExistencianumericUpDow.Focus();
+                paso = false;
+            }
+            if (CostonumericUpDown.Value == 0)
+            {
+                MessageBox.Show("El costo no puede estar vacio");
+                CostonumericUpDown.Focus();
+                paso = false;
+            }
+            return paso;
+        }
+
+        private bool ExisteEnLaBaseDeDatos()
+        {
+            Productos productos = ProductoClase.Buscar((int)IDnumericUpDown.Value);
+            return (productos != null);
+        }
+
     }
 }
