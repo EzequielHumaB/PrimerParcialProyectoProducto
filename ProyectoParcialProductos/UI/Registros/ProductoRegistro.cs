@@ -44,7 +44,17 @@ namespace ProyectoParcialProductos.UI.Registros
             return productos;
         }
 
-        
+        private void LlenarCampo(Productos productos)
+        {
+            productos.ProductoID = (int)IDnumericUpDown.Value;
+            productos.ProductoID = (int)IDnumericUpDown.Value;
+            productos.Descripcion = DescripciontextBox.Text;
+            productos.costo = (double)CostonumericUpDown.Value;
+            productos.existencia = (int)ExistencianumericUpDow.Value;
+            productos.ValorInventario = (double)TotalnumericUpDown.Value;
+        }
+
+       
      
     }
 }
