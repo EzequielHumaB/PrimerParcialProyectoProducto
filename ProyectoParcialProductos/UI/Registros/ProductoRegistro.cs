@@ -38,20 +38,21 @@ namespace ProyectoParcialProductos.UI.Registros
             Productos productos = new Productos();
             productos.ProductoID = (int)IDnumericUpDown.Value;
             productos.Descripcion = DescripciontextBox.Text;
-            productos.costo = (double)CostonumericUpDown.Value;
+            productos.costo = Convert.ToDecimal(CostonumericUpDown.Value);
             productos.existencia = (int)ExistencianumericUpDow.Value;
-            productos.ValorInventario = (double)TotalnumericUpDown.Value;
+            TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
+            productos.ValorInventario = TotalnumericUpDown.Value;
             return productos;
         }
 
         private void LlenarCampo(Productos productos)
         {
-            productos.ProductoID = (int)IDnumericUpDown.Value;
-            productos.ProductoID = (int)IDnumericUpDown.Value;
-            productos.Descripcion = DescripciontextBox.Text;
-            productos.costo = (double)CostonumericUpDown.Value;
-            productos.existencia = (int)ExistencianumericUpDow.Value;
-            productos.ValorInventario = (double)TotalnumericUpDown.Value;
+            IDnumericUpDown.Value = productos.ProductoID;
+            DescripciontextBox.Text = productos.Descripcion;
+            ExistencianumericUpDow.Value = productos.existencia;
+            CostonumericUpDown.Value = productos.costo;
+            TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
+            productos.ValorInventario = TotalnumericUpDown.Value;
         }
 
         public bool Validar()
@@ -123,33 +124,43 @@ namespace ProyectoParcialProductos.UI.Registros
             int id;
             int.TryParse(IDnumericUpDown.Text, out id);
             Limpiar();
-            if(ProductoClase.Eliminar(id))
+            try
             {
-                MessageBox.Show("Eliminado correctamente");
+                if (ProductoClase.Eliminar(id))
+                {
+                    MessageBox.Show("Eliminado correctamente");
+                }
             }
-            else
+            catch(Exception)
             {
-                MessageBox.Show("No se puede eliminar a alguien que no existe");
+                MessageBox.Show("Producto no encontrado");
             }
+          
         }
 
         private void Buscarbutton_Click(object sender, EventArgs e)
         {
-            int id;
-            Productos productos = new Productos();
-            int.TryParse(IDnumericUpDown.Text, out id);
-            Limpiar();
-            
-            if (productos!=null)
+            int id = 0;
+            id = (int)IDnumericUpDown.Value;
+            try
             {
-                MessageBox.Show("Usuario encontrado");
-                LlenarCampo(productos);
+                Productos productos = ProductoClase.Buscar(id);
+                if (productos != null)
+                {
+                    MessageBox.Show("Producto encontrado");
+                    LlenarCampo(productos);
+                }
             }
-            else
+            catch(Exception)
             {
-                MessageBox.Show("Usuario no encontrado");
+                MessageBox.Show("No existe el producto");
             }
 
+        }
+
+        private void TotalnumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            TotalnumericUpDown.Enabled = false;
         }
     }
 }

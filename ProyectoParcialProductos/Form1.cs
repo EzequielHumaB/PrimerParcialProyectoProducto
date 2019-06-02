@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoParcialProductos.UI.Registros;
 
 namespace ProyectoParcialProductos
 {
@@ -15,6 +16,13 @@ namespace ProyectoParcialProductos
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void RegistrarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductoRegistro productoRegistro = new ProductoRegistro();
+            productoRegistro.StartPosition = FormStartPosition.CenterScreen;
+            productoRegistro.Show();
         }
     }
 }

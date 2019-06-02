@@ -13,16 +13,16 @@ namespace ProyectoParcialProductos.Entidades
         public int ProductoID { get; set; }
         public string Descripcion { get; set; }
         public int existencia { get; set; }
-        public double costo { get; set; }
-        public double ValorInventario { get; set; }
+        public decimal costo { get; set; }
+        public decimal ValorInventario { get; set; }
 
         public Productos()
         {
             ProductoID = 0;
             Descripcion = string.Empty;
             existencia = 0;
-            costo = 0.0d;
-            ValorInventario = 0.0d;
+            costo = 0;
+            ValorInventario = 0;
         }
 
     }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ProyectoParcialProductos.DAL;
 using ProyectoParcialProductos.Entidades;
+using System.Data.Entity;
 
 namespace ProyectoParcialProductos.BLL
 {
@@ -54,7 +55,7 @@ namespace ProyectoParcialProductos.BLL
             try
             {
                 var eliminar = contexto.productos.Find(id);
-                contexto.Entry(id).State = System.Data.Entity.EntityState.Deleted;
+                contexto.Entry(eliminar).State = EntityState.Deleted;
                 paso = contexto.SaveChanges() > 0;
 
 

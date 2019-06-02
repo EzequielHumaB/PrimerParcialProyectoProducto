@@ -51,10 +51,12 @@
             // 
             // TotalnumericUpDown
             // 
+            this.TotalnumericUpDown.Enabled = false;
             this.TotalnumericUpDown.Location = new System.Drawing.Point(143, 162);
             this.TotalnumericUpDown.Name = "TotalnumericUpDown";
             this.TotalnumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.TotalnumericUpDown.TabIndex = 30;
+            this.TotalnumericUpDown.ValueChanged += new System.EventHandler(this.TotalnumericUpDown_ValueChanged);
             // 
             // Buscarbutton
             // 
