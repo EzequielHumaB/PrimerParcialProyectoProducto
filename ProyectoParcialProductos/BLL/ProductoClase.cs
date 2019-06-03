@@ -59,7 +59,7 @@ namespace ProyectoParcialProductos.BLL
             {
                 var eliminar = contexto.productos.Find(id);
                 contexto.Entry(eliminar).State = EntityState.Deleted;
-                paso = contexto.SaveChanges() > 0;
+                paso = (contexto.SaveChanges()) > 0;
 
 
             }catch(Exception)

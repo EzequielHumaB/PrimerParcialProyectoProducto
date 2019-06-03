@@ -44,7 +44,7 @@ namespace ProyectoParcialProductos.UI.Registros
             try
             {
                 productos.ProductoID = (int)IDnumericUpDown.Value;
-                productos.Descripcion = DescripciontextBox.Text;
+                productos.Descripcion = DescripciontextBox.Text.Trim();
                 productos.costo = CostonumericUpDown.Value;
                 productos.existencia = (int)ExistencianumericUpDow.Value;
                 TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
@@ -76,18 +76,13 @@ namespace ProyectoParcialProductos.UI.Registros
         public bool Validar()
         {
             bool paso = true;
-            if (string.IsNullOrWhiteSpace(DescripciontextBox.Text))
+            if (String.IsNullOrEmpty(DescripciontextBox.Text))
             {
                 MessageBox.Show("La descripcion no puede estar vacia");
                 DescripciontextBox.Focus();
                 paso = false;
             }
-            if (ExistencianumericUpDow.Value == 0)
-            {
-                MessageBox.Show("La existencia no puede estar vacia");
-                ExistencianumericUpDow.Focus();
-                paso = false;
-            }
+         
             if (CostonumericUpDown.Value == 0)
             {
                 MessageBox.Show("El costo no puede estar vacio");
@@ -142,7 +137,7 @@ namespace ProyectoParcialProductos.UI.Registros
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             int id;
-            int.TryParse(IDnumericUpDown.Text, out id);
+            id = (int)IDnumericUpDown.Value;
             Limpiar();
             try
             {
@@ -153,7 +148,7 @@ namespace ProyectoParcialProductos.UI.Registros
             }
             catch(Exception)
             {
-                MessageBox.Show("Producto no encontrado");
+                MessageBox.Show("No se pudo eliminar");
             }
           
         }
@@ -183,9 +178,14 @@ namespace ProyectoParcialProductos.UI.Registros
 
         }
 
-        private void TotalnumericUpDown_ValueChanged(object sender, EventArgs e)
+        private void CostonumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            TotalnumericUpDown.Enabled = false;
+            TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
+        }
+
+        private void ExistencianumericUpDow_ValueChanged(object sender, EventArgs e)
+        {
+            TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
         }
     }
 }

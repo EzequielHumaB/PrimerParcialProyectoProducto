@@ -61,7 +61,6 @@
             this.TotalnumericUpDown.Name = "TotalnumericUpDown";
             this.TotalnumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.TotalnumericUpDown.TabIndex = 30;
-            this.TotalnumericUpDown.ValueChanged += new System.EventHandler(this.TotalnumericUpDown_ValueChanged);
             // 
             // Buscarbutton
             // 
@@ -127,6 +126,7 @@
             this.CostonumericUpDown.Name = "CostonumericUpDown";
             this.CostonumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.CostonumericUpDown.TabIndex = 25;
+            this.CostonumericUpDown.ValueChanged += new System.EventHandler(this.CostonumericUpDown_ValueChanged);
             // 
             // ExistencianumericUpDow
             // 
@@ -139,6 +139,7 @@
             this.ExistencianumericUpDow.Name = "ExistencianumericUpDow";
             this.ExistencianumericUpDow.Size = new System.Drawing.Size(50, 20);
             this.ExistencianumericUpDow.TabIndex = 24;
+            this.ExistencianumericUpDow.ValueChanged += new System.EventHandler(this.ExistencianumericUpDow_ValueChanged);
             // 
             // DescripciontextBox
             // 
