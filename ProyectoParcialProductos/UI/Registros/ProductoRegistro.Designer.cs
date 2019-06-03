@@ -53,6 +53,11 @@
             // 
             this.TotalnumericUpDown.Enabled = false;
             this.TotalnumericUpDown.Location = new System.Drawing.Point(143, 162);
+            this.TotalnumericUpDown.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
             this.TotalnumericUpDown.Name = "TotalnumericUpDown";
             this.TotalnumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.TotalnumericUpDown.TabIndex = 30;
@@ -113,6 +118,11 @@
             // CostonumericUpDown
             // 
             this.CostonumericUpDown.Location = new System.Drawing.Point(143, 126);
+            this.CostonumericUpDown.Maximum = new decimal(new int[] {
+            1410065408,
+            2,
+            0,
+            0});
             this.CostonumericUpDown.Name = "CostonumericUpDown";
             this.CostonumericUpDown.Size = new System.Drawing.Size(50, 20);
             this.CostonumericUpDown.TabIndex = 25;
@@ -120,6 +130,11 @@
             // ExistencianumericUpDow
             // 
             this.ExistencianumericUpDow.Location = new System.Drawing.Point(143, 94);
+            this.ExistencianumericUpDow.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.ExistencianumericUpDow.Name = "ExistencianumericUpDow";
             this.ExistencianumericUpDow.Size = new System.Drawing.Size(50, 20);
             this.ExistencianumericUpDow.TabIndex = 24;

@@ -28,24 +28,7 @@ namespace ProyectoParcialProductos.BLL
             return paso;
         }
 
-        public static bool Modificar(TotalInventario totalInventario)
-        {
-            bool paso = false;
-            Contexto contexto = new Contexto();
-            try
-            {
-                contexto.Entry(totalInventario).State = EntityState.Modified;
-                paso = contexto.SaveChanges() > 0;
-            }catch(Exception)
-            {
-                throw;
-            }
-            finally
-            {
-                contexto.Dispose();
-            }
-            return paso;
-        }
+       
     }
 }
     

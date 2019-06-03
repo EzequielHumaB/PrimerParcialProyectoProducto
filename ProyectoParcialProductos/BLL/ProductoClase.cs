@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using ProyectoParcialProductos.DAL;
 using ProyectoParcialProductos.Entidades;
 using System.Data.Entity;
+using System.Collections;
+using System.Linq;
+
 
 namespace ProyectoParcialProductos.BLL
 {
@@ -88,6 +91,25 @@ namespace ProyectoParcialProductos.BLL
             }
             return productos;
         }
-        
+
+        public static List<Productos> GetList(Expression<Func<Productos,bool>> productos)
+        {
+            List<Productos> lista = new List<Productos>();
+            Contexto contexto = new Contexto();
+            try
+            {
+                lista = contexto.productos.Where(productos).ToList();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                contexto.Dispose();
+            }
+            return lista;
+        }
+
     }
 }

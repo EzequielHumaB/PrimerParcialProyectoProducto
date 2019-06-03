@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ProyectoParcialProductos.BLL;
 using ProyectoParcialProductos.UI.Registros;
 using ProyectoParcialProductos.Entidades;
 
@@ -14,18 +15,34 @@ namespace ProyectoParcialProductos.UI.Consultas
 {
     public partial class ConsultaInventario : Form
     {
+        Productos Productos = new Productos();
+        ProductoRegistro ProductoRegistro = new ProductoRegistro();
         public ConsultaInventario()
         {
             InitializeComponent();
         }
 
+        public decimal Consulta()
+        {
+            decimal resultado = 0;
+            List<Productos> productos1 = new List<Productos>();
+            productos1 = ProductoClase.GetList(p => true);
+
+            foreach (var valore in productos1)
+            {
+                resultado += valore.ValorInventario;
+            }
+            return resultado;
+        }
+
+
         private void Refrescarbutton_Click(object sender, EventArgs e)
         {
-            ProductoRegistro productoRegistro = new ProductoRegistro();
-            Productos productos = new Productos();
-            decimal total = productos.costo * productos.existencia;
+            TotalInventarioConsultatextBox.Text = Consulta().ToString();
+            TotalInventario total = new TotalInventario();
+            total.InventarioTotal = Convert.ToDecimal(TotalInventarioConsultatextBox.Text);
+            TotalInventarioClase.Guardar(total); //Guardar en la tabla TotalInventario
 
-            TotalInventarioConsultatextBox.Text = total.ToString();
         }
     }
 }

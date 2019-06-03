@@ -16,6 +16,7 @@ namespace ProyectoParcialProductos.Entidades
      
         public TotalInventario()
         {
+            ProductoID = 0;
             InventarioTotal = 0;
         }
     }

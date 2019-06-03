@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using ProyectoParcialProductos.DAL;
 using ProyectoParcialProductos.BLL;
 using ProyectoParcialProductos.Entidades;
+using ProyectoParcialProductos.UI.Consultas;
+using System.Collections;
 
 namespace ProyectoParcialProductos.UI.Registros
 {
@@ -20,6 +22,8 @@ namespace ProyectoParcialProductos.UI.Registros
             InitializeComponent();
         }
 
+      
+        
         private void Limpiar()
         {
             IDnumericUpDown.Value = 0;
@@ -28,33 +32,45 @@ namespace ProyectoParcialProductos.UI.Registros
             CostonumericUpDown.Value = 0;
         }
 
+     
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
             Limpiar();
         }
 
-       
-
         private Productos LlenarClase()
         {
             Productos productos = new Productos();
-            productos.ProductoID = (int)IDnumericUpDown.Value;
-            productos.Descripcion = DescripciontextBox.Text;
-            productos.costo = Convert.ToDecimal(CostonumericUpDown.Value);
-            productos.existencia = (int)ExistencianumericUpDow.Value;
-            TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
-            productos.ValorInventario = TotalnumericUpDown.Value;
+            try
+            {
+                productos.ProductoID = (int)IDnumericUpDown.Value;
+                productos.Descripcion = DescripciontextBox.Text;
+                productos.costo = CostonumericUpDown.Value;
+                productos.existencia = (int)ExistencianumericUpDow.Value;
+                TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
+                productos.ValorInventario = TotalnumericUpDown.Value;
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Valor no admitido");
+            }
             return productos;
         }
-
         private void LlenarCampo(Productos productos)
         {
-            IDnumericUpDown.Value = productos.ProductoID;
-            DescripciontextBox.Text = productos.Descripcion;
-            ExistencianumericUpDow.Value = productos.existencia;
-            CostonumericUpDown.Value = productos.costo;
-            TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
-            productos.ValorInventario = TotalnumericUpDown.Value;
+            try
+            {
+                IDnumericUpDown.Value = productos.ProductoID;
+                DescripciontextBox.Text = productos.Descripcion;
+                ExistencianumericUpDow.Value = productos.existencia;
+                CostonumericUpDown.Value = productos.costo;
+                TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
+                productos.ValorInventario = TotalnumericUpDown.Value;
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Valor no admitido");
+            }
         }
 
         public bool Validar()
@@ -100,6 +116,7 @@ namespace ProyectoParcialProductos.UI.Registros
             if (IDnumericUpDown.Value == 0)
             {
                 paso = ProductoClase.Guardar(productos);
+                
             }
             else
             {
@@ -109,6 +126,7 @@ namespace ProyectoParcialProductos.UI.Registros
                     return;
                 }
                 paso = ProductoClase.Modificar(productos);
+                
             }
              
             if (paso)

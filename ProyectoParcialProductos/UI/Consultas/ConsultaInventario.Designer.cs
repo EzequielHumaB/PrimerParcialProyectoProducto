@@ -34,6 +34,7 @@
             // 
             // TotalInventarioConsultatextBox
             // 
+            this.TotalInventarioConsultatextBox.Enabled = false;
             this.TotalInventarioConsultatextBox.Location = new System.Drawing.Point(67, 42);
             this.TotalInventarioConsultatextBox.Name = "TotalInventarioConsultatextBox";
             this.TotalInventarioConsultatextBox.Size = new System.Drawing.Size(100, 20);
@@ -64,8 +65,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox TotalInventarioConsultatextBox;
         private System.Windows.Forms.Button Refrescarbutton;
+        public System.Windows.Forms.TextBox TotalInventarioConsultatextBox;
     }
 }
