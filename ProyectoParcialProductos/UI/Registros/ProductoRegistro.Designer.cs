@@ -117,6 +117,7 @@
             // 
             // CostonumericUpDown
             // 
+            this.CostonumericUpDown.DecimalPlaces = 2;
             this.CostonumericUpDown.Location = new System.Drawing.Point(143, 126);
             this.CostonumericUpDown.Maximum = new decimal(new int[] {
             1410065408,
@@ -148,6 +149,7 @@
             // 
             // IDnumericUpDown
             // 
+            this.IDnumericUpDown.DecimalPlaces = 2;
             this.IDnumericUpDown.Location = new System.Drawing.Point(143, 27);
             this.IDnumericUpDown.Name = "IDnumericUpDown";
             this.IDnumericUpDown.Size = new System.Drawing.Size(50, 20);

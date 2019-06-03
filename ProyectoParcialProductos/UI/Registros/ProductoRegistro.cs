@@ -170,6 +170,11 @@ namespace ProyectoParcialProductos.UI.Registros
                     MessageBox.Show("Producto encontrado");
                     LlenarCampo(productos);
                 }
+                else
+                {
+                    MessageBox.Show("Producto no encontrado");
+                    Limpiar();
+                }
             }
             catch(Exception)
             {
