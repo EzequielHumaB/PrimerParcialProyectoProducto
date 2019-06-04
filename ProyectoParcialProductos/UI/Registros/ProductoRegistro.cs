@@ -43,7 +43,7 @@ namespace ProyectoParcialProductos.UI.Registros
             Productos productos = new Productos();
             try
             {
-                productos.ProductoID = (int)IDnumericUpDown.Value;
+                productos.ProductoId = (int)IDnumericUpDown.Value;
                 productos.Descripcion = DescripciontextBox.Text.Trim();
                 productos.costo = CostonumericUpDown.Value;
                 productos.existencia = (int)ExistencianumericUpDow.Value;
@@ -60,7 +60,7 @@ namespace ProyectoParcialProductos.UI.Registros
         {
             try
             {
-                IDnumericUpDown.Value = productos.ProductoID;
+                IDnumericUpDown.Value = productos.ProductoId;
                 DescripciontextBox.Text = productos.Descripcion;
                 ExistencianumericUpDow.Value = productos.existencia;
                 CostonumericUpDown.Value = productos.costo;
@@ -94,7 +94,7 @@ namespace ProyectoParcialProductos.UI.Registros
 
         private bool ExisteEnLaBaseDeDatos()
         {
-            Productos productos = ProductoClase.Buscar((int)IDnumericUpDown.Value);
+            Productos productos = ProductosClase.Buscar((int)IDnumericUpDown.Value);
             return (productos != null);
         }
 
@@ -111,17 +111,17 @@ namespace ProyectoParcialProductos.UI.Registros
 
             if (IDnumericUpDown.Value == 0)
             {
-                paso = ProductoClase.Guardar(producto);
+                paso = ProductosClase.Guardar(producto);
                 MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 int id = Convert.ToInt32(IDnumericUpDown.Value);
-                producto = ProductoClase.Buscar(id);
+                producto = ProductosClase.Buscar(id);
 
                 if (producto != null)
                 {
-                    paso = ProductoClase.Modificar(LlenarClase());
+                    paso = ProductosClase.Modificar(LlenarClase());
                     MessageBox.Show("Modificado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
@@ -144,7 +144,7 @@ namespace ProyectoParcialProductos.UI.Registros
             Limpiar();
             try
             {
-                if (ProductoClase.Eliminar(id))
+                if (ProductosClase.Eliminar(id))
                 {
                     MessageBox.Show("Eliminado correctamente");
                 }
@@ -162,7 +162,7 @@ namespace ProyectoParcialProductos.UI.Registros
             id = (int)IDnumericUpDown.Value;
             try
             {
-                Productos productos = ProductoClase.Buscar(id);
+                Productos productos = ProductosClase.Buscar(id);
                 if (productos != null)
                 {
                     MessageBox.Show("Producto encontrado");

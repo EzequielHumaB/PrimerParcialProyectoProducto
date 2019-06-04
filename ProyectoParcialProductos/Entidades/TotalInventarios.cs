@@ -7,16 +7,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProyectoParcialProductos.Entidades
 {
-   public class TotalInventario
+   public class TotalInventarios
     {
         [Key]
-        public int ProductoID { get; set; }
+        public int ProductoId { get; set; }
 
         public decimal InventarioTotal { get; set; }
      
-        public TotalInventario()
+        public TotalInventarios()
         {
-            ProductoID = 0;
+            ProductoId = 0;
             InventarioTotal = 0;
         }
     }

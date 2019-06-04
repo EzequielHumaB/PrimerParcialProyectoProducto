@@ -33,7 +33,7 @@ namespace ProyectoParcialProductos.UI.Registros
             Ubicaciones ubicaciones1 = new Ubicaciones();
             foreach(var valor in ubicaciones)
             {
-                if (valor.Descripcion == DescripciontextBox.Text)
+                if (valor.Descripcion.Length.Equals(DescripciontextBox.Text))
                 {
                     paso = false;
                 }
@@ -44,7 +44,7 @@ namespace ProyectoParcialProductos.UI.Registros
         private Ubicaciones LlenarClase()
         {
             Ubicaciones ubicaciones = new Ubicaciones();
-            ubicaciones.UbicacionID = (int)IDnumericUpDown.Value;
+            ubicaciones.UbicacionId = (int)IDnumericUpDown.Value;
             ubicaciones.Descripcion = DescripciontextBox.Text;
             return ubicaciones;
         }
@@ -52,7 +52,7 @@ namespace ProyectoParcialProductos.UI.Registros
         private void LlenarCampo(Ubicaciones ubicaciones)
         {
            
-            IDnumericUpDown.Value = ubicaciones.UbicacionID;
+            IDnumericUpDown.Value = ubicaciones.UbicacionId;
             DescripciontextBox.Text = ubicaciones.Descripcion;
         }
 

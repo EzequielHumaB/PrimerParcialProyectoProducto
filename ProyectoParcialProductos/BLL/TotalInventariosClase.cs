@@ -9,9 +9,9 @@ using System.Data.Entity;
 
 namespace ProyectoParcialProductos.BLL
 {
-   public class TotalInventarioClase
+   public class TotalInventariosClase
     {
-        public static bool Guardar(TotalInventario totalInventario)
+        public static bool Guardar(TotalInventarios totalInventario)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -28,7 +28,7 @@ namespace ProyectoParcialProductos.BLL
             return paso;
        }
 
-        public static bool Modificar(TotalInventario totalInventario)
+        public static bool Modificar(TotalInventarios totalInventario)
         {
             bool paso = false;
             Contexto contexto = new Contexto();

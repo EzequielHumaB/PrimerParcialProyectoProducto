@@ -11,7 +11,7 @@ namespace ProyectoParcialProductos.DAL
    public class Contexto : DbContext
     {
         public DbSet<Productos> productos { get; set; }
-        public DbSet<TotalInventario> totalInventarios { get; set; }
+        public DbSet<TotalInventarios> totalInventarios { get; set; }
 
         public DbSet<Ubicaciones> ubicacion { get; set; }
 

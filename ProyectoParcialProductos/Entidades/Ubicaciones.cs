@@ -10,13 +10,13 @@ namespace ProyectoParcialProductos.Entidades
     public class Ubicaciones
     {
         [Key]
-        public int UbicacionID { get; set; }
+        public int UbicacionId { get; set; }
         public string Descripcion { get; set; }
 
 
         public Ubicaciones()
         {
-            UbicacionID = 0;
+            UbicacionId = 0;
             Descripcion = string.Empty;
         }
     }

@@ -12,7 +12,7 @@ using System.Linq;
 
 namespace ProyectoParcialProductos.BLL
 {
-   public class ProductoClase
+   public class ProductosClase
     {
         public static bool Guardar(Productos productos)
         {
@@ -36,7 +36,7 @@ namespace ProyectoParcialProductos.BLL
             bool paso = false;
 
             Contexto contexto = new Contexto();
-            Productos productos = ProductoClase.Buscar(producto.ProductoID);
+            Productos productos = ProductosClase.Buscar(producto.ProductoId);
             try
             {
                 contexto.Entry(producto).State = EntityState.Modified;

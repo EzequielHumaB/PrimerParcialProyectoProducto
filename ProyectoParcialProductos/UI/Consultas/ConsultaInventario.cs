@@ -24,7 +24,7 @@ namespace ProyectoParcialProductos.UI.Consultas
         {
             decimal resultado = 0;
             List<Productos> productos1 = new List<Productos>();
-            productos1 = ProductoClase.GetList(p => true);
+            productos1 = ProductosClase.GetList(p => true);
 
             foreach (var valore in productos1)
             {
@@ -36,8 +36,8 @@ namespace ProyectoParcialProductos.UI.Consultas
     
         private void Igualar()
         {
-            TotalInventario totalInventario = new TotalInventario();
-            totalInventario.ProductoID = (int)IDnumericUpDown.Value;
+            TotalInventarios totalInventario = new TotalInventarios();
+            totalInventario.ProductoId = (int)IDnumericUpDown.Value;
         }
 
      
@@ -46,13 +46,13 @@ namespace ProyectoParcialProductos.UI.Consultas
         {
             bool paso = false;
             Igualar();
-            TotalInventario totalInventario = new TotalInventario();
+            TotalInventarios totalInventario = new TotalInventarios();
             if (IDnumericUpDown.Value == 0 )
             {
-                paso = TotalInventarioClase.Guardar(totalInventario);
+                paso = TotalInventariosClase.Guardar(totalInventario);
             } else
             {
-                paso = TotalInventarioClase.Modificar(totalInventario);           
+                paso = TotalInventariosClase.Modificar(totalInventario);           
             }
 
             return paso;
@@ -62,7 +62,7 @@ namespace ProyectoParcialProductos.UI.Consultas
         {
             Guardar();
             TotalInventarioConsultatextBox.Text = Consulta().ToString();
-            TotalInventario total = new TotalInventario();
+            TotalInventarios total = new TotalInventarios();
             total.InventarioTotal = Convert.ToDecimal(TotalInventarioConsultatextBox.Text);
         }
     }
