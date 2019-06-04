@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ProyectoParcialProductos.DAL;
+using ProyectoParcialProductos.UI.Registros;
 using ProyectoParcialProductos.BLL;
 using ProyectoParcialProductos.Entidades;
 using ProyectoParcialProductos.UI.Consultas;
@@ -21,8 +22,6 @@ namespace ProyectoParcialProductos.UI.Registros
         {
             InitializeComponent();
         }
-
-      
         
         private void Limpiar()
         {
@@ -37,6 +36,7 @@ namespace ProyectoParcialProductos.UI.Registros
         {
             Limpiar();
         }
+
 
         private Productos LlenarClase()
         {
@@ -99,39 +99,42 @@ namespace ProyectoParcialProductos.UI.Registros
         }
 
         private void GuardarButton_Click(object sender, EventArgs e)
-        {
-            bool paso = false;
-            Productos productos;
+       { 
+
+        Productos producto;
+        bool paso = false;
 
             if (!Validar())
                 return;
 
-            productos = LlenarClase();
-            Limpiar();
+            producto = LlenarClase();
+
             if (IDnumericUpDown.Value == 0)
             {
-                paso = ProductoClase.Guardar(productos);
-                
-            }
-            else
-            {
-                if (!ExisteEnLaBaseDeDatos())
-                {
-                    MessageBox.Show("No se puede modificar a alguien que no existe");
-                    return;
-                }
-                paso = ProductoClase.Modificar(productos);
-                
-            }
-             
-            if (paso)
-            {
+                paso = ProductoClase.Guardar(producto);
                 MessageBox.Show("Guardado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                MessageBox.Show("No fue posible guardar!!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                int id = Convert.ToInt32(IDnumericUpDown.Value);
+                producto = ProductoClase.Buscar(id);
+
+                if (producto != null)
+                {
+                    paso = ProductoClase.Modificar(LlenarClase());
+                    MessageBox.Show("Modificado!!", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Id no existe", "Falló",  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            if (paso)
+            {
+                Limpiar();
+            }
+            else
+                MessageBox.Show("No se pudo guardar!!", "Falló",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -186,6 +189,13 @@ namespace ProyectoParcialProductos.UI.Registros
         private void ExistencianumericUpDow_ValueChanged(object sender, EventArgs e)
         {
             TotalnumericUpDown.Value = CostonumericUpDown.Value * ExistencianumericUpDow.Value;
+        }
+
+        private void Ubicacionesbutton_Click(object sender, EventArgs e)
+        {
+            UbicacionesRegistro ubicacionesRegistro = new UbicacionesRegistro();
+            ubicacionesRegistro.StartPosition = FormStartPosition.CenterScreen;
+            ubicacionesRegistro.Show();
         }
     }
 }

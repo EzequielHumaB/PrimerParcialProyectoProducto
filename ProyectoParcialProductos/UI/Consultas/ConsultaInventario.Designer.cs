@@ -30,6 +30,8 @@
         {
             this.TotalInventarioConsultatextBox = new System.Windows.Forms.TextBox();
             this.Refrescarbutton = new System.Windows.Forms.Button();
+            this.IDnumericUpDown = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // TotalInventarioConsultatextBox
@@ -50,15 +52,25 @@
             this.Refrescarbutton.UseVisualStyleBackColor = true;
             this.Refrescarbutton.Click += new System.EventHandler(this.Refrescarbutton_Click);
             // 
+            // IDnumericUpDown
+            // 
+            this.IDnumericUpDown.Enabled = false;
+            this.IDnumericUpDown.Location = new System.Drawing.Point(67, 12);
+            this.IDnumericUpDown.Name = "IDnumericUpDown";
+            this.IDnumericUpDown.Size = new System.Drawing.Size(42, 20);
+            this.IDnumericUpDown.TabIndex = 2;
+            // 
             // ConsultaInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(237, 123);
+            this.Controls.Add(this.IDnumericUpDown);
             this.Controls.Add(this.Refrescarbutton);
             this.Controls.Add(this.TotalInventarioConsultatextBox);
             this.Name = "ConsultaInventario";
             this.Text = "Consulta de inventario";
+            ((System.ComponentModel.ISupportInitialize)(this.IDnumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -67,5 +79,6 @@
         #endregion
         private System.Windows.Forms.Button Refrescarbutton;
         public System.Windows.Forms.TextBox TotalInventarioConsultatextBox;
+        private System.Windows.Forms.NumericUpDown IDnumericUpDown;
     }
 }

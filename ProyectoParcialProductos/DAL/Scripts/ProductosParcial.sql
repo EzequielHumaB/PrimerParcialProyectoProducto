@@ -17,3 +17,9 @@ create table TotalInventario
    InventarioTotal decimal
    constraint llaveForanea foreign key(ProductoID) references Productos(ProductoID)
 )
+
+create table Ubicaciones
+(
+  UbicacionID int primary key identity,
+  Descripcion varchar(40)
+)

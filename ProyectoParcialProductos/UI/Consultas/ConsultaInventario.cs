@@ -14,9 +14,7 @@ using ProyectoParcialProductos.Entidades;
 namespace ProyectoParcialProductos.UI.Consultas
 {
     public partial class ConsultaInventario : Form
-    {
-        Productos Productos = new Productos();
-        ProductoRegistro ProductoRegistro = new ProductoRegistro();
+    {     
         public ConsultaInventario()
         {
             InitializeComponent();
@@ -35,14 +33,38 @@ namespace ProyectoParcialProductos.UI.Consultas
             return resultado;
         }
 
+    
+        private void Igualar()
+        {
+            TotalInventario totalInventario = new TotalInventario();
+            totalInventario.ProductoID = (int)IDnumericUpDown.Value;
+        }
+
+     
+
+        public bool Guardar()
+        {
+            bool paso = false;
+            Igualar();
+            TotalInventario totalInventario = new TotalInventario();
+            if (IDnumericUpDown.Value == 0 )
+            {
+                paso = TotalInventarioClase.Guardar(totalInventario);
+            } else
+            {
+                paso = TotalInventarioClase.Modificar(totalInventario);           
+            }
+
+            return paso;
+        }
 
         private void Refrescarbutton_Click(object sender, EventArgs e)
         {
+            Guardar();
             TotalInventarioConsultatextBox.Text = Consulta().ToString();
             TotalInventario total = new TotalInventario();
-            TotalInventarioClase.Guardar(total); //Guardar en la tabla TotalInventario
+           // TotalInventarioClase.Guardar(total); //Guardar en la tabla TotalInventario
             total.InventarioTotal = Convert.ToDecimal(TotalInventarioConsultatextBox.Text);
-
         }
     }
 }

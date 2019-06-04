@@ -1,68 +1,66 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using ProyectoParcialProductos.DAL;
-using ProyectoParcialProductos.Entidades;
 using System.Data.Entity;
 using System.Collections;
-using System.Linq;
-
+using ProyectoParcialProductos.DAL;
+using ProyectoParcialProductos.Entidades;
 
 namespace ProyectoParcialProductos.BLL
 {
-   public class ProductoClase
+    public class UbicacionesClase
     {
-        public static bool Guardar(Productos productos)
+        public static bool Guardar(Ubicaciones ubicaciones)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
-                if (contexto.productos.Add(productos)!=null)
+                if (contexto.ubicacion.Add(ubicaciones)!=null)
                 {
                     paso = contexto.SaveChanges() > 0;
                 }
-            } catch(Exception)
+            }catch(Exception)
             {
                 throw;
             }
             return paso;
         }
 
-        public static bool Modificar(Productos producto)
+       
+
+        public static bool Modificar(Ubicaciones ubicaciones)
         {
             bool paso = false;
-
             Contexto contexto = new Contexto();
-            Productos productos = ProductoClase.Buscar(producto.ProductoID);
             try
             {
-                contexto.Entry(producto).State = EntityState.Modified;
-                paso = (contexto.SaveChanges() > 0);
-
-            }
-            catch (Exception)
+                contexto.Entry(ubicaciones).State = EntityState.Modified;
+                paso = contexto.SaveChanges() > 0;
+            }catch(Exception)
             {
                 throw;
             }
-            finally { contexto.Dispose(); }
-
+            finally
+            {
+                contexto.Dispose();
+            }
             return paso;
         }
-
 
         public static bool Eliminar(int id)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+            Ubicaciones ubicaciones = new Ubicaciones();
             try
             {
-                var eliminar = contexto.productos.Find(id);
+                var eliminar = contexto.ubicacion.Find(id);
                 contexto.Entry(eliminar).State = EntityState.Deleted;
-                paso = (contexto.SaveChanges()) > 0;
-
+                paso = contexto.SaveChanges() > 0;
 
             }catch(Exception)
             {
@@ -75,15 +73,15 @@ namespace ProyectoParcialProductos.BLL
             return paso;
         }
 
-       public static Productos Buscar(int id)
+        public static Ubicaciones Buscar(int id)
         {
+            Ubicaciones ubicaciones = new Ubicaciones();
             Contexto contexto = new Contexto();
-            Productos productos = new Productos();
             try
             {
-                productos = contexto.productos.Find(id);
+                ubicaciones = contexto.ubicacion.Find(id);
 
-            } catch(Exception)
+            }catch(Exception)
             {
                 throw;
             }
@@ -91,18 +89,17 @@ namespace ProyectoParcialProductos.BLL
             {
                 contexto.Dispose();
             }
-            return productos;
+            return ubicaciones;
         }
 
-        public static List<Productos> GetList(Expression<Func<Productos,bool>> productos)
+        public static List<Ubicaciones> getList(Expression<Func<Ubicaciones,bool>>ubicaciones)
         {
-            List<Productos> lista = new List<Productos>();
+            List<Ubicaciones> lista = new List<Ubicaciones>();
             Contexto contexto = new Contexto();
             try
             {
-                lista = contexto.productos.Where(productos).ToList();
-            }
-            catch (Exception)
+                lista = contexto.ubicacion.Where(ubicaciones).ToList();
+            }catch(Exception)
             {
                 throw;
             }

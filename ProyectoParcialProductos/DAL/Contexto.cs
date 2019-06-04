@@ -13,10 +13,9 @@ namespace ProyectoParcialProductos.DAL
         public DbSet<Productos> productos { get; set; }
         public DbSet<TotalInventario> totalInventarios { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Productos>().ToTable("Productos");
-        }
+        public DbSet<Ubicaciones> ubicacion { get; set; }
+
+     
         public Contexto() : base("ConStr")
         { }
     }

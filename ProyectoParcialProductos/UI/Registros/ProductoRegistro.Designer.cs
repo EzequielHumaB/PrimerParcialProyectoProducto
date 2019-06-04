@@ -43,6 +43,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.Ubicacionesbutton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.TotalnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExistencianumericUpDow)).BeginInit();
@@ -66,7 +68,7 @@
             // 
             this.Buscarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Buscarbutton.Image")));
             this.Buscarbutton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Buscarbutton.Location = new System.Drawing.Point(235, 27);
+            this.Buscarbutton.Location = new System.Drawing.Point(223, 18);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(90, 34);
             this.Buscarbutton.TabIndex = 29;
@@ -79,7 +81,7 @@
             // 
             this.Eliminarbutton.Image = ((System.Drawing.Image)(resources.GetObject("Eliminarbutton.Image")));
             this.Eliminarbutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Eliminarbutton.Location = new System.Drawing.Point(250, 216);
+            this.Eliminarbutton.Location = new System.Drawing.Point(263, 242);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(75, 57);
             this.Eliminarbutton.TabIndex = 28;
@@ -92,7 +94,7 @@
             // 
             this.GuardarButton.Image = ((System.Drawing.Image)(resources.GetObject("GuardarButton.Image")));
             this.GuardarButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.GuardarButton.Location = new System.Drawing.Point(156, 216);
+            this.GuardarButton.Location = new System.Drawing.Point(155, 242);
             this.GuardarButton.Name = "GuardarButton";
             this.GuardarButton.Size = new System.Drawing.Size(75, 57);
             this.GuardarButton.TabIndex = 27;
@@ -105,7 +107,7 @@
             // 
             this.Nuevobutton.Image = ((System.Drawing.Image)(resources.GetObject("Nuevobutton.Image")));
             this.Nuevobutton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Nuevobutton.Location = new System.Drawing.Point(53, 216);
+            this.Nuevobutton.Location = new System.Drawing.Point(38, 242);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(75, 57);
             this.Nuevobutton.TabIndex = 26;
@@ -143,7 +145,7 @@
             // 
             // DescripciontextBox
             // 
-            this.DescripciontextBox.Location = new System.Drawing.Point(143, 68);
+            this.DescripciontextBox.Location = new System.Drawing.Point(143, 60);
             this.DescripciontextBox.Name = "DescripciontextBox";
             this.DescripciontextBox.Size = new System.Drawing.Size(124, 20);
             this.DescripciontextBox.TabIndex = 23;
@@ -159,7 +161,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 169);
+            this.label6.Location = new System.Drawing.Point(50, 162);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(81, 13);
             this.label6.TabIndex = 21;
@@ -201,11 +203,32 @@
             this.label1.TabIndex = 17;
             this.label1.Text = "Producto ID";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(50, 196);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(55, 13);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "Ubicacion";
+            // 
+            // Ubicacionesbutton
+            // 
+            this.Ubicacionesbutton.Location = new System.Drawing.Point(143, 196);
+            this.Ubicacionesbutton.Name = "Ubicacionesbutton";
+            this.Ubicacionesbutton.Size = new System.Drawing.Size(75, 23);
+            this.Ubicacionesbutton.TabIndex = 32;
+            this.Ubicacionesbutton.Text = "Ir al formulario";
+            this.Ubicacionesbutton.UseVisualStyleBackColor = true;
+            this.Ubicacionesbutton.Click += new System.EventHandler(this.Ubicacionesbutton_Click);
+            // 
             // ProductoRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 311);
+            this.Controls.Add(this.Ubicacionesbutton);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.TotalnumericUpDown);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
@@ -247,5 +270,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button Ubicacionesbutton;
     }
 }
