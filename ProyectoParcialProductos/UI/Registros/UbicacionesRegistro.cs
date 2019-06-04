@@ -30,7 +30,6 @@ namespace ProyectoParcialProductos.UI.Registros
         {
             bool paso = true;
             List<Ubicaciones> ubicaciones = new List<Ubicaciones>();
-            Ubicaciones ubicaciones1 = new Ubicaciones();
             foreach(var valor in ubicaciones)
             {
                 if (valor.Descripcion.Length.Equals(DescripciontextBox.Text))

@@ -21,6 +21,8 @@ namespace ProyectoParcialProductos.UI.Registros
         public ProductoRegistro()
         {
             InitializeComponent();
+
+            LlenarComboBox();
         }
         
         private void Limpiar()
@@ -196,6 +198,15 @@ namespace ProyectoParcialProductos.UI.Registros
             UbicacionesRegistro ubicacionesRegistro = new UbicacionesRegistro();
             ubicacionesRegistro.StartPosition = FormStartPosition.CenterScreen;
             ubicacionesRegistro.Show();
+        }
+
+        private void LlenarComboBox()
+        {
+            var listado = new List<Ubicaciones>();
+            listado = UbicacionesClase.getList(p => true);
+            UbicacioncomboBox.DataSource = listado;
+            UbicacioncomboBox.DisplayMember = "Descripcion";
+            UbicacioncomboBox.ValueMember = "UbicacionId";
         }
     }
 }

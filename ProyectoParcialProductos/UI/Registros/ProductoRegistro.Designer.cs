@@ -45,6 +45,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Ubicacionesbutton = new System.Windows.Forms.Button();
+            this.UbicacioncomboBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.TotalnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CostonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ExistencianumericUpDow)).BeginInit();
@@ -214,19 +215,28 @@
             // 
             // Ubicacionesbutton
             // 
-            this.Ubicacionesbutton.Location = new System.Drawing.Point(143, 196);
+            this.Ubicacionesbutton.Location = new System.Drawing.Point(250, 192);
             this.Ubicacionesbutton.Name = "Ubicacionesbutton";
-            this.Ubicacionesbutton.Size = new System.Drawing.Size(75, 23);
+            this.Ubicacionesbutton.Size = new System.Drawing.Size(63, 23);
             this.Ubicacionesbutton.TabIndex = 32;
-            this.Ubicacionesbutton.Text = "Ir al formulario";
+            this.Ubicacionesbutton.Text = "Agregar";
             this.Ubicacionesbutton.UseVisualStyleBackColor = true;
             this.Ubicacionesbutton.Click += new System.EventHandler(this.Ubicacionesbutton_Click);
+            // 
+            // UbicacioncomboBox
+            // 
+            this.UbicacioncomboBox.FormattingEnabled = true;
+            this.UbicacioncomboBox.Location = new System.Drawing.Point(143, 192);
+            this.UbicacioncomboBox.Name = "UbicacioncomboBox";
+            this.UbicacioncomboBox.Size = new System.Drawing.Size(87, 21);
+            this.UbicacioncomboBox.TabIndex = 33;
             // 
             // ProductoRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(381, 311);
+            this.Controls.Add(this.UbicacioncomboBox);
             this.Controls.Add(this.Ubicacionesbutton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TotalnumericUpDown);
@@ -272,5 +282,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button Ubicacionesbutton;
+        private System.Windows.Forms.ComboBox UbicacioncomboBox;
     }
 }
