@@ -110,5 +110,24 @@ namespace ProyectoParcialProductos.BLL
             return lista;
         }
 
+        public static bool PalabrasNoIguales(string descripcion)
+        {
+            bool paso = false;
+            Contexto Contexto = new Contexto();
+            try
+            {
+                if (Contexto.ubicacion.Any(p => p.Descripcion.Equals(descripcion)))
+                {
+                    paso = true;
+                }
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+
+            return paso;
+        }
+
     }
 }

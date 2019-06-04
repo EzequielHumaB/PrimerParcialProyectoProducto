@@ -64,7 +64,7 @@ namespace ProyectoParcialProductos.UI.Registros
                 DescripciontextBox.Focus();
                 paso = false;
             }
-            if (!validacion())
+            if (UbicacionesClase.PalabrasNoIguales(DescripciontextBox.Text))
             {
                 MessageBox.Show("Los nombre no pueden ser iguales");
                 DescripciontextBox.Focus();
