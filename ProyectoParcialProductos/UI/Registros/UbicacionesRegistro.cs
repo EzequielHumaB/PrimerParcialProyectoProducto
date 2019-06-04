@@ -33,7 +33,7 @@ namespace ProyectoParcialProductos.UI.Registros
             Ubicaciones ubicaciones1 = new Ubicaciones();
             foreach(var valor in ubicaciones)
             {
-                if (valor.Descripcion.Equals(DescripciontextBox.Text))
+                if (valor.Descripcion == DescripciontextBox.Text)
                 {
                     paso = false;
                 }
@@ -65,6 +65,13 @@ namespace ProyectoParcialProductos.UI.Registros
                 DescripciontextBox.Focus();
                 paso = false;
             }
+            if (!validacion())
+            {
+                MessageBox.Show("Los nombre no pueden ser iguales");
+                DescripciontextBox.Focus();
+                paso = false;
+            }
+
             return paso;
         }
 

@@ -63,7 +63,6 @@ namespace ProyectoParcialProductos.UI.Consultas
             Guardar();
             TotalInventarioConsultatextBox.Text = Consulta().ToString();
             TotalInventario total = new TotalInventario();
-           // TotalInventarioClase.Guardar(total); //Guardar en la tabla TotalInventario
             total.InventarioTotal = Convert.ToDecimal(TotalInventarioConsultatextBox.Text);
         }
     }
