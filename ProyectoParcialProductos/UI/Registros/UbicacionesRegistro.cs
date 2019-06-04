@@ -26,20 +26,6 @@ namespace ProyectoParcialProductos.UI.Registros
             DescripciontextBox.Text = string.Empty;
         }
 
-        public bool validacion()  //Esta funcion aun no es optima, por eso todavia no la utilizo 
-        {
-            bool paso = true;
-            List<Ubicaciones> ubicaciones = new List<Ubicaciones>();
-            foreach(var valor in ubicaciones)
-            {
-                if (valor.Descripcion.Length.Equals(DescripciontextBox.Text))
-                {
-                    paso = false;
-                }
-            }
-            return paso;
-        }
-
         private Ubicaciones LlenarClase()
         {
             Ubicaciones ubicaciones = new Ubicaciones();
